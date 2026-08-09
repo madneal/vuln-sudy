@@ -28,8 +28,9 @@ jobs:
           languages: javascript, go
           config-file: ./.github/codeql/codeql-config.yml
 
-      - name: Autobuild Go fixtures
-        uses: github/codeql-action/autobuild@v3
+      - name: Build Go fixtures
+        working-directory: security-fixtures/go
+        run: go build ./...
 
       - name: Perform CodeQL analysis
         uses: github/codeql-action/analyze@v3
