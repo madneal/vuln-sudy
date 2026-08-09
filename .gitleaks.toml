@@ -1,0 +1,11 @@
+title = "vuln-sudy secret scanning policy"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "test-fixture-secret"
+description = "Synthetic internal secret format used to verify local and PR gates"
+regex = '''TEST_SECRET_[A-Z0-9]{32}'''
+keywords = ["TEST_SECRET_"]
+
