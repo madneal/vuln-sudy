@@ -1,0 +1,8 @@
+name: Extended security fixtures
+
+queries:
+  - uses: security-extended
+
+paths:
+  - security-fixtures
+
