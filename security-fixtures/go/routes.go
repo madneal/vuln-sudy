@@ -22,6 +22,14 @@ func NewMux(db *sql.DB, publicDirectory string) http.Handler {
 		fileHandler(w, r, publicDirectory)
 	})
 	mux.HandleFunc("/go/search", searchHandler)
+	mux.HandleFunc("/go/complex/command", complexCommandHandler)
+	mux.HandleFunc("/go/complex/sql", func(w http.ResponseWriter, r *http.Request) {
+		complexSQLHandler(w, r, db)
+	})
+	mux.HandleFunc("/go/complex/file", func(w http.ResponseWriter, r *http.Request) {
+		complexFileHandler(w, r, publicDirectory)
+	})
+	mux.HandleFunc("/go/complex/search", complexSearchHandler)
 
 	return mux
 }

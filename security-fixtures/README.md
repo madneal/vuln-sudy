@@ -12,4 +12,6 @@ repository root so that their purpose is unambiguous.
 
 The CodeQL workflow uses the `security-extended` query suite and analyzes both
 JavaScript and Go. The Go fixture is a standalone module so CodeQL can build it
-without fetching application dependencies.
+without fetching application dependencies. The `/go/complex/*` routes add
+multi-hop flows through decoders, value objects, interfaces, service methods,
+and output builders before reaching the vulnerable sinks.
